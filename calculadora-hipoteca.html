@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de hipoteca | Carolina Monroy Muriel</title>
+<meta name="description" content="Calculadora de hipoteca fácil de usar, en español e inglés: calcula tu pago mensual con impuestos, seguro, PMI y HOA. Carolina Monroy Muriel, REALTOR® en Georgia. / Easy mortgage calculator.">
+<meta property="og:title" content="How much would you pay each month for your new home?">
+<meta property="og:description" content="Easy mortgage calculator in English and Spanish by Carolina Monroy Muriel, REALTOR®.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.carolinamonroymuriel.com/calculadora-hipoteca.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://www.carolinamonroymuriel.com/calculadora-hipoteca.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400,0..100,0..1&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: brand single-theme, airy editorial. Ivory and white pages with one soft sage band; deep green kept for the hero, life insurance and contact only. Gold works as fine lines, arches and highlights, never as heavy fills. */
+:root{
+  --green:#0F4E48; --green-deep:#0B3D38; --green-ink:#0F4E48;
+  --sage:#EEF3F0; --sage-line:#D6E3DE;
+  --gold:#C6A94F; --gold-light:#E4CE89; --gold-ink:#8A7126; --gold-wash:#F7EFD6;
+  --ivory:#FBF8F1; --paper:#FFFFFF; --ink:#22302D; --muted:#55645F; --line:#ECE5D3;
+  --on-dark:#F4F1E8; --on-dark-muted:#C9D6D1;
+  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Figtree","Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r-lg:22px; --r-md:16px;
+  --shadow:0 1px 2px rgba(15,78,72,.04),0 8px 24px -12px rgba(15,78,72,.14);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html:not([data-lang="en"]) [lang="en"], html[data-lang="en"] [lang="es"]{display:none!important}
+a{color:inherit}
+.in{max-width:1120px;margin:0 auto;padding-left:max(22px, env(safe-area-inset-left, 0px));padding-right:max(22px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;text-wrap:balance;margin:0;font-variation-settings:"SOFT" 50,"WONK" 0;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.2vw,2.85rem);color:var(--green)}
+h3{font-size:1.22rem;line-height:1.25;color:var(--green);font-weight:550;letter-spacing:0}
+p{margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--green-deep)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(11,61,56,.96);backdrop-filter:saturate(1.2) blur(8px);color:var(--on-dark);border-bottom:1px solid rgba(198,169,79,.28)}
+nav.top .in{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--on-dark);min-width:0}
+.brand img{width:36px;height:auto}
+.brand span{font-family:var(--display);font-size:1.12rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.links{display:flex;gap:22px;margin-left:auto;font-size:.9rem;font-weight:500}
+.links a{text-decoration:none;color:var(--on-dark-muted);white-space:nowrap;padding-block:6px;background:linear-gradient(var(--gold),var(--gold)) left bottom/0 1px no-repeat;transition:background-size .25s ease,color .2s ease}
+.links a:hover{color:var(--gold-light);background-size:100% 1px}
+.langbtn{margin-left:auto;display:flex;border:1px solid rgba(198,169,79,.7);border-radius:999px;overflow:hidden;flex:none}
+.links + .langbtn{margin-left:0}
+.langbtn button{background:none;border:0;color:var(--gold-light);font:600 .76rem var(--body);letter-spacing:.12em;padding:7px 13px;cursor:pointer}
+.langbtn button[aria-pressed="true"]{background:var(--gold);color:var(--green-deep)}
+@media (max-width:960px){.links{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(90% 90% at 85% 10%, #165F57 0%, var(--green) 38%, var(--green-deep) 100%);color:var(--on-dark);padding-block:84px 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-180px;top:-220px;width:520px;height:520px;border:1px solid rgba(198,169,79,.16);border-radius:50%}
+.hero::after{content:"";position:absolute;right:-140px;bottom:-200px;width:600px;height:600px;border:1px solid rgba(198,169,79,.22);border-radius:50%;box-shadow:0 0 0 40px rgba(198,169,79,.03)}
+.hero .in{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero .eyebrow{color:var(--gold-light)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem);font-weight:450;line-height:1.06;color:var(--on-dark);font-variation-settings:"SOFT" 100,"WONK" 0}
+.hero h1 em{color:var(--gold-light);font-style:italic;font-weight:400}
+.hero .lead{font-size:1.16rem;line-height:1.65;color:var(--on-dark-muted);max-width:33em;margin-top:22px}
+.hero .roles{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid rgba(228,206,137,.45);background:rgba(228,206,137,.06);color:var(--gold-light);border-radius:999px;padding:5px 13px;font-size:.8rem;font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:999px;padding:13px 24px;font-weight:600;font-size:.96rem;letter-spacing:.01em;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-deep);box-shadow:0 10px 24px -12px rgba(198,169,79,.8)}
+.btn.line{border:1px solid rgba(228,206,137,.7);color:var(--gold-light)}
+.btn.line:hover{background:rgba(228,206,137,.08)}
+.btn.green{background:var(--green);color:var(--on-dark)}
+.btn.green:hover{box-shadow:0 10px 24px -14px rgba(15,78,72,.9)}
+.btn.outline{border:1px solid var(--green);color:var(--green)}
+.btn.outline:hover{background:var(--sage)}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:220px 220px 22px 22px;border:1px solid rgba(228,206,137,.8);overflow:hidden;padding:10px;background:rgba(228,206,137,.08);position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:210px 210px 14px 14px;display:block}
+
+/* service index */
+.index{padding-block:88px 72px}
+.index .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.index .head p{color:var(--muted);max-width:32em}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.grid{grid-template-columns:1fr}}
+.svc{display:flex;flex-direction:column;gap:10px;text-decoration:none;background:var(--paper);border:1px solid transparent;border-radius:var(--r-lg);padding:24px 22px;min-width:0;box-shadow:var(--shadow);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.svc:hover{transform:translateY(-3px);border-color:rgba(198,169,79,.55);box-shadow:0 18px 36px -20px rgba(15,78,72,.35)}
+.svc .ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--gold-wash);color:var(--green);margin-bottom:4px}
+.svc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc strong{font-family:var(--display);font-size:1.2rem;color:var(--green);font-weight:550;line-height:1.2}
+.svc span.d{font-size:.9rem;line-height:1.55;color:var(--muted)}
+
+/* sections */
+section.block{padding-block:96px;position:relative}
+section.block + section.block{border-top:0}
+#bienes-raices{background:var(--paper)}
+#prestamos{background:var(--ivory)}
+#medicare{background:var(--paper)}
+#sobre-mi{background:var(--ivory)}
+#equipo{background:var(--paper)}
+section.block.tint{background:var(--sage)}
+section.block.dark{background:var(--green-deep);color:var(--on-dark)}
+section.block.dark h2, section.block.dark h3{color:var(--on-dark)}
+section.block.dark .eyebrow{color:var(--gold-light)}
+section.block.dark .muted{color:var(--on-dark-muted)}
+.two{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+@media (max-width:880px){.two,.hero .in{grid-template-columns:1fr;gap:40px}.hero .portrait{max-width:300px}}
+.intro{display:flex;flex-direction:column;gap:16px;min-width:0}
+.intro p{color:var(--muted);max-width:32em;font-size:1.04rem}
+.dark .intro p{color:var(--on-dark-muted)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+#seguros .cards .card:first-child{grid-column:1/-1}
+#prestamos .cards .card:first-child{grid-column:1/-1}
+@media (max-width:580px){.cards{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .25s ease,box-shadow .25s ease}
+.card:hover{border-color:rgba(198,169,79,.6);box-shadow:var(--shadow)}
+#bienes-raices .card,#medicare .card{background:var(--ivory);border-color:transparent}
+#bienes-raices .card:hover,#medicare .card:hover{border-color:rgba(198,169,79,.55)}
+.tint .card{border-color:var(--sage-line)}
+.dark .card{background:rgba(255,255,255,.045);border-color:rgba(228,206,137,.22)}
+.dark .card:hover{border-color:rgba(228,206,137,.55);box-shadow:none}
+.card h3{position:relative;padding-top:14px}
+.card h3::before{content:"";position:absolute;left:0;top:0;width:22px;height:2px;border-radius:2px;background:var(--gold)}
+.card p{font-size:.96rem;line-height:1.6;color:var(--muted)}
+.dark .card p{color:var(--on-dark-muted)}
+.card a.more{margin-top:auto;padding-top:6px;font-weight:600;color:var(--green);text-decoration:none;font-size:.92rem;display:inline-flex;align-items:center;gap:6px}
+.card a.more::after{content:"→";transition:transform .2s ease}
+.card a.more:hover::after{transform:translateX(4px)}
+.dark .card a.more{color:var(--gold-light)}
+.steps{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;font-size:.98rem;line-height:1.6;color:var(--muted);align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:50%;background:var(--gold-wash);display:grid;place-items:center;font:600 .82rem var(--body);color:var(--gold-ink)}
+.dark .steps li{color:var(--on-dark-muted)}
+.dark .steps li::before{background:rgba(228,206,137,.14);color:var(--gold-light)}
+.note{font-size:.82rem;line-height:1.6;color:var(--muted);border-left:2px solid var(--gold);padding:4px 0 4px 14px;margin-top:8px;max-width:62em}
+.dark .note{color:#AFC2BC}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+
+.grid.prod{grid-template-columns:repeat(3,1fr)}
+@media (max-width:960px){.grid.prod{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.grid.prod{grid-template-columns:1fr}}
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:34px;box-shadow:var(--shadow)}
+@media (max-width:880px){.calc{grid-template-columns:1fr;padding:22px}}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+@media (max-width:540px){.fields{grid-template-columns:1fr}}
+.fields label{display:flex;flex-direction:column;gap:6px;font-size:.84rem;font-weight:500;color:var(--muted)}
+.fields input,.fields select{font:inherit;font-size:1rem;color:var(--ink);background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:11px 13px;min-width:0;width:100%;transition:border-color .2s ease,background-color .2s ease}
+.fields input:focus,.fields select:focus{outline:2px solid rgba(198,169,79,.5);outline-offset:1px;border-color:var(--gold);background:var(--paper)}
+.results{background:linear-gradient(160deg,var(--green),var(--green-deep));color:var(--on-dark);border-radius:var(--r-md);padding:26px;display:flex;flex-direction:column;gap:12px}
+.results>div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(228,206,137,.18);padding-bottom:9px}
+.results b{font-weight:400;color:var(--on-dark-muted);font-size:.92rem}
+.results span[id]{font-variant-numeric:tabular-nums;font-weight:600;color:var(--gold-light)}
+.results .small{font-size:.76rem;color:#A9BDB7}
+.results .btn{justify-content:center;margin-top:8px}
+.steps.how{flex-direction:row;flex-wrap:wrap;gap:20px}
+.steps.how li{flex:1 1 240px}
+.steps.how b{color:var(--green);font-weight:600}
+.docs{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:start}
+@media (max-width:880px){.docs{grid-template-columns:1fr}}
+#prestamos .docs .cards .card:first-child{grid-column:auto}
+.checks{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.55;color:var(--muted)}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.checks li::before{content:"✓";color:var(--gold-ink);font-weight:700}
+.sec-photo{margin:14px 0 0;max-width:340px;aspect-ratio:4/5;border-radius:170px 170px 18px 18px;overflow:hidden;border:1px solid rgba(198,169,79,.8);padding:8px;background:var(--gold-wash)}
+.sec-photo img{width:100%;height:100%;object-fit:cover;border-radius:162px 162px 12px 12px;display:block}
+@media (max-width:880px){.sec-photo{max-width:280px}}
+#bienes-raices .steps b{color:var(--green);font-weight:600}
+.brokerage{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:40px}
+.brokerage img{height:42px;width:auto}
+footer .axen{height:38px;width:auto;margin-bottom:4px;align-self:flex-start}
+
+/* about */
+.about-quote{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1.35rem,2.6vw,1.65rem);color:var(--green);line-height:1.4;padding-left:20px;border-left:2px solid var(--gold);font-variation-settings:"SOFT" 100}
+.socials{display:flex;flex-wrap:wrap;gap:8px}
+.socials a{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:.86rem;font-weight:500;text-decoration:none;background:var(--paper);transition:border-color .2s ease,color .2s ease}
+.socials a:hover{border-color:var(--gold);color:var(--green)}
+
+/* contact */
+#contacto{background:radial-gradient(80% 120% at 0% 0%, #145a52 0%, var(--green-deep) 60%)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:880px){.contact-grid{grid-template-columns:1fr}}
+.kv{display:flex;flex-direction:column;gap:4px}
+.kv b{font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light)}
+.kv span,.kv a{color:var(--on-dark);text-decoration:none;user-select:all;overflow-wrap:anywhere}
+
+footer{background:#082F2B;color:#A3B7B1;font-size:.82rem;padding-block:40px 48px;line-height:1.75}
+footer .in{display:flex;flex-direction:column;gap:12px}
+footer b{color:var(--gold-light);font-weight:600}
+.eho{display:inline-flex;align-items:center;gap:8px}
+.eho svg{width:26px;height:26px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.draft{background:#FFF4CC;color:#6B5310;font-size:.78rem;padding:2px 8px;border-radius:6px;display:inline-block}
+
+/* gentle entrance for the hero only; content is visible at rest */
+@keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+.hero .in>*{animation:rise .7s ease both}
+.hero .in>*:nth-child(2){animation-delay:.12s}
+
+
+/* guide article */
+.narrow{max-width:760px}
+.art-hero{padding-block:56px 72px}
+.art-hero .in{display:block}
+.art-hero{background:linear-gradient(180deg,var(--ivory) 0%,var(--sage) 100%);color:var(--ink);border-bottom:1px solid var(--line)}
+.art-hero::before{border-color:rgba(198,169,79,.22)}
+.art-hero::after{border-color:rgba(198,169,79,.25);box-shadow:none}
+.art-hero .eyebrow{color:var(--gold-ink)}
+.art-hero h1{color:var(--green)}
+.art-hero h1 em{color:var(--gold-ink)}
+.art-hero .lead{color:var(--muted)}
+.art-hero .back{color:var(--green)}
+.art-hero .byline{color:var(--muted)}
+.cta-band h2{color:var(--green)}
+.cta-band .muted{color:var(--muted)}
+.art-hero .eyebrow{display:flex}
+.art-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:14px}
+.art-hero .lead{max-width:none}
+.back{display:inline-block;color:var(--gold-light);text-decoration:none;font-size:.9rem;font-weight:500;margin-bottom:22px}
+.back:hover{text-decoration:underline}
+.byline{margin-top:24px;font-size:.84rem;color:var(--on-dark-muted)}
+.article{background:var(--paper);padding-block:64px 88px}
+.article p{color:var(--ink);font-size:1.08rem;line-height:1.8;margin-bottom:18px}
+.article h2{font-size:clamp(1.65rem,3.4vw,2.2rem);margin:52px 0 16px}
+.article .dropcap::first-letter{font-family:var(--display);float:left;font-size:3.6em;line-height:.9;padding:6px 10px 0 0;color:var(--gold-ink)}
+.pull{margin:36px 0;padding:6px 0 6px 22px;border-left:2px solid var(--gold);font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.6rem);line-height:1.4;color:var(--green);font-variation-settings:"SOFT" 100}
+.calc.mini{margin:8px 0 18px}
+.calc.mini .results>div{align-items:baseline}
+.calc.mini .results span[id]{font-size:1.25rem}
+.small-note{font-size:.86rem!important;color:var(--muted)!important;margin-top:14px}
+.results p.small{margin:0;font-size:.86rem;line-height:1.5;color:#C9D6D1}
+.checks.big{font-size:1.04rem;gap:12px;margin:6px 0 20px}
+.checks.big b{color:var(--green)}
+.article .steps{margin:6px 0 10px}
+.article .steps li{font-size:1.04rem;color:var(--ink)}
+.article .steps b{color:var(--green)}
+.article .cards .card{background:var(--ivory);border-color:transparent}
+.article .card p{font-size:.96rem;margin:0;color:var(--muted)}
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--ivory);border-radius:var(--r-md);padding:16px 20px;border:1px solid transparent}
+.faq details[open]{border-color:rgba(198,169,79,.5)}
+.faq summary{cursor:pointer;font-weight:600;color:var(--green);list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold-ink);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:10px 0 0;font-size:1rem}
+.cta-band .center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.cta-band .ctas{justify-content:center;margin-top:10px}
+.cta-band .muted{max-width:34em}
+footer a{color:var(--gold-light);text-decoration:none}
+.more-svc{background:var(--ivory);padding-block:72px}
+.more-svc h2{margin:10px 0 28px;font-size:clamp(1.7rem,3.4vw,2.3rem)}
+
+.calc.mortgage{grid-template-columns:1.15fr .85fr;margin-top:-40px;position:relative}
+.calc.mortgage .fields .wide{grid-column:1/-1}
+.calc.mortgage .fields{grid-template-columns:1fr 1fr}
+.calc.mortgage .fields label{justify-content:space-between}
+.results .total-label{margin:0;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.results .total{margin:0 0 4px;font-family:var(--display);font-size:clamp(2.6rem,6vw,3.4rem);line-height:1;color:var(--on-dark);font-variant-numeric:tabular-nums;border:0}
+.results .bar{gap:0;justify-content:flex-start;display:flex;height:10px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.08);border:0;padding:0;margin-bottom:6px}
+.results .bar i{display:block;height:100%;transition:width .3s ease}
+#b-pi,.d1{background:#E4CE89} #b-tax,.d2{background:#9CC3B8} #b-ins,.d3{background:#F4F1E8} #b-pmi,.d4{background:#C6A94F} #b-hoa,.d5{background:#6E9C90}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.results .sum{border-bottom:0;padding-bottom:0}
+.results .sum span{color:var(--on-dark)!important;font-weight:500!important}
+.results .btn{align-self:stretch}
+@media (max-width:880px){.calc.mortgage{grid-template-columns:1fr;margin-top:-24px}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Principal">
+  <div class="in">
+    <a class="brand" href="index.html"><img src="logo.png" alt=""><span>Carolina Monroy Muriel</span></a>
+    <div class="links">
+      <a href="index.html#bienes-raices"><span lang="es">Bienes raíces</span><span lang="en">Real Estate</span></a>
+      <a href="index.html#seguros"><span lang="es">Seguros</span><span lang="en">Insurance</span></a>
+      <a href="index.html#medicare">Medicare</a>
+      <a href="index.html#notaria"><span lang="es">Notaría y Bodas</span><span lang="en">Notary &amp; Weddings</span></a>
+      <a href="index.html#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    </div>
+    <div class="langbtn" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero art-hero">
+  <div class="in narrow">
+    <a class="back" href="index.html#bienes-raices"><span lang="es">← Bienes raíces</span><span lang="en">← Real Estate</span></a>
+    <p class="eyebrow"><span lang="es">Calculadora de hipoteca</span><span lang="en">Mortgage Calculator</span></p>
+    <h1><span lang="es">¿Cuánto pagarías al mes por <em>tu nueva casa?</em></span><span lang="en">How much would you pay each month for <em>your new home?</em></span></h1>
+    <p class="lead" lang="es">Cambia el precio de la casa, tu inicial y la tasa de interés, y mira al instante tu pago mensual completo: préstamo, impuestos, seguro y más.</p>
+    <p class="lead" lang="en">Change the home price, your down payment and the interest rate, and instantly see your full monthly payment: loan, taxes, insurance and more.</p>
+  </div>
+</header>
+
+<article class="article">
+  <div class="in">
+    <div class="calc mortgage" aria-label="Calculadora de hipoteca / Mortgage calculator">
+      <div>
+        <div class="fields">
+          <label class="wide"><span lang="es">Precio de la casa ($)</span><span lang="en">Home price ($)</span><input id="m-price" type="number" inputmode="numeric" min="0" step="5000" value="350000"></label>
+          <label><span lang="es">Inicial (%)</span><span lang="en">Down payment (%)</span><input id="m-down" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="10"></label>
+          <label><span lang="es">Tasa de interés (%)</span><span lang="en">Interest rate (%)</span><input id="m-rate" type="number" inputmode="decimal" min="0" max="20" step="0.125" value="6.5"></label>
+          <label><span lang="es">Plazo (años)</span><span lang="en">Loan term (years)</span><select id="m-term"><option value="30" selected>30</option><option value="20">20</option><option value="15">15</option></select></label>
+          <label><span lang="es">Impuesto de propiedad (% al año)</span><span lang="en">Property tax (% per year)</span><input id="m-tax" type="number" inputmode="decimal" min="0" max="5" step="0.05" value="1"></label>
+          <label><span lang="es">Seguro de casa ($ al año)</span><span lang="en">Home insurance ($ per year)</span><input id="m-ins" type="number" inputmode="numeric" min="0" step="100" value="1800"></label>
+          <label><span lang="es">HOA ($ al mes)</span><span lang="en">HOA ($ per month)</span><input id="m-hoa" type="number" inputmode="numeric" min="0" step="10" value="0"></label>
+        </div>
+        <p class="small-note" lang="es">Los valores iniciales son solo un ejemplo. Pon los tuyos; tu tasa real depende de tu crédito y del préstamo.</p>
+        <p class="small-note" lang="en">The starting values are just an example. Enter your own; your actual rate depends on your credit and the loan.</p>
+      </div>
+      <div class="results">
+        <p class="total-label"><span lang="es">Tu pago mensual estimado</span><span lang="en">Your estimated monthly payment</span></p>
+        <p class="total" id="m-total">$0</p>
+        <div class="bar" aria-hidden="true"><i id="b-pi"></i><i id="b-tax"></i><i id="b-ins"></i><i id="b-pmi"></i><i id="b-hoa"></i></div>
+        <div><b><i class="dot d1"></i><span lang="es">Préstamo (capital e interés)</span><span lang="en">Principal &amp; interest</span></b><span id="m-pi">$0</span></div>
+        <div><b><i class="dot d2"></i><span lang="es">Impuesto de propiedad</span><span lang="en">Property tax</span></b><span id="m-taxm">$0</span></div>
+        <div><b><i class="dot d3"></i><span lang="es">Seguro de casa</span><span lang="en">Home insurance</span></b><span id="m-insm">$0</span></div>
+        <div id="row-pmi"><b><i class="dot d4"></i><span lang="es">Seguro hipotecario (PMI)*</span><span lang="en">Mortgage insurance (PMI)*</span></b><span id="m-pmi">$0</span></div>
+        <div><b><i class="dot d5"></i>HOA</b><span id="m-hoam">$0</span></div>
+        <div class="sum"><b><span lang="es">Inicial</span><span lang="en">Down payment</span></b><span id="m-downd">$0</span></div>
+        <div class="sum"><b><span lang="es">Monto del préstamo</span><span lang="en">Loan amount</span></b><span id="m-loan">$0</span></div>
+        <p class="small" lang="es">*Con menos de 20% de inicial, el banco suele pedir PMI. Aquí lo estimamos en 0.5% del préstamo al año.</p>
+        <p class="small" lang="en">*With less than 20% down, lenders usually require PMI. We estimate it here at 0.5% of the loan per year.</p>
+        <a class="btn gold" href="https://partner.supremebest.com/carolinamonroymuriel" target="_blank" rel="noopener"><span lang="es">Precalifícate gratis</span><span lang="en">Get pre-qualified for free</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="in narrow">
+    <h2><span lang="es">¿Qué incluye tu pago mensual?</span><span lang="en">What's in your monthly payment?</span></h2>
+    <p lang="es">Muchas personas solo piensan en el préstamo, pero el pago de una casa tiene varias partes. Conocerlas te evita sorpresas:</p>
+    <p lang="en">Many people only think about the loan, but a house payment has several parts. Knowing them helps you avoid surprises:</p>
+    <ul class="checks big">
+      <li><span lang="es"><b>Capital e interés:</b> lo que le pagas al banco por el préstamo.</span><span lang="en"><b>Principal and interest:</b> what you pay the lender for the loan.</span></li>
+      <li><span lang="es"><b>Impuesto de propiedad:</b> lo cobra el condado cada año; normalmente se paga junto con la hipoteca.</span><span lang="en"><b>Property tax:</b> charged by the county every year; usually paid together with your mortgage.</span></li>
+      <li><span lang="es"><b>Seguro de casa:</b> protege tu hogar y el banco lo exige.</span><span lang="en"><b>Home insurance:</b> protects your home and the lender requires it.</span></li>
+      <li><span lang="es"><b>PMI:</b> un seguro para el banco cuando das menos de 20% de inicial.</span><span lang="en"><b>PMI:</b> insurance for the lender when you put down less than 20%.</span></li>
+      <li><span lang="es"><b>HOA:</b> la cuota de la asociación de vecinos, si la comunidad la tiene.</span><span lang="en"><b>HOA:</b> the homeowners association fee, if the community has one.</span></li>
+    </ul>
+
+    <h2><span lang="es">Tus siguientes pasos</span><span lang="en">Your next steps</span></h2>
+    <ol class="steps">
+      <li><span><b lang="es">Precalifícate.</b><b lang="en">Get pre-qualified.</b> <span lang="es">Así sabes cuánto te presta el banco y a qué tasa.</span><span lang="en">So you know how much the lender will lend you and at what rate.</span></span></li>
+      <li><span><b lang="es">Habla conmigo.</b><b lang="en">Talk to me.</b> <span lang="es">Buscamos casas que se ajusten a tu pago ideal, no solo al máximo que te aprueban.</span><span lang="en">We look for homes that fit your ideal payment, not just the maximum you're approved for.</span></span></li>
+      <li><span><b lang="es">Recibe alertas.</b><b lang="en">Get alerts.</b> <span lang="es">Te llegan las casas nuevas en tu rango de precio.</span><span lang="en">Get new listings in your price range.</span></span></li>
+    </ol>
+  </div>
+</article>
+
+<section class="block tint cta-band">
+  <div class="in narrow center">
+    <p class="eyebrow"><span lang="es">Tu casa empieza aquí</span><span lang="en">Your home starts here</span></p>
+    <h2><span lang="es">Encontremos una casa que se ajuste a tu presupuesto</span><span lang="en">Let's find a home that fits your budget</span></h2>
+    <p class="muted" lang="es">Agenda una consulta gratuita, en persona o por Google Meet, en español o en inglés.</p>
+    <p class="muted" lang="en">Book a free consultation, in person or on Google Meet, in English or Spanish.</p>
+    <div class="ctas">
+      <a class="btn green" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0kin7i7Y61nhxT4hzFnF8xBITXgMBvr_f1wwEvuB593LYLiYKeM3JcaS24T9gS-l1HjK9XxsOw" target="_blank" rel="noopener"><span lang="es">Agenda tu consulta gratis</span><span lang="en">Book your free consultation</span></a>
+      <a class="btn outline" href="https://carolinamonroymuriel.axenrealty.com/homes-for-sale" target="_blank" rel="noopener"><span lang="es">Busca casas</span><span lang="en">Search homes</span></a>
+      <a class="btn outline" href="https://wa.me/14044833168?text=Hola%20Carolina%2C%20quiero%20comprar%20casa" target="_blank" rel="noopener">WhatsApp (404) 483-3168</a>
+    </div>
+  </div>
+</section>
+
+<section class="block more-svc">
+  <div class="in">
+    <p class="eyebrow"><span lang="es">Todo en un solo lugar</span><span lang="en">Everything in one place</span></p>
+    <h2><span lang="es">Descubre cómo más puedo ayudarte</span><span lang="en">Discover how else I can help you</span></h2>
+    <div class="grid">
+      <a class="svc" href="seguros-de-vida.html"><strong><span lang="es">Seguros de vida</span><span lang="en">Life Insurance</span></strong><span class="d"><span lang="es">Protege tu casa y a tu familia</span><span lang="en">Protect your home and family</span></span></a>
+      <a class="svc" href="index.html#prestamos"><strong><span lang="es">Préstamos privados</span><span lang="en">Private Loans</span></strong><span class="d"><span lang="es">Financiamiento para inversionistas</span><span lang="en">Financing for investors</span></span></a>
+      <a class="svc" href="index.html#medicare"><strong>Medicare</strong><span class="d"><span lang="es">Orientación y educación sin costo</span><span lang="en">Free guidance and education</span></span></a>
+      <a class="svc" href="index.html#notaria"><strong><span lang="es">Notaría y Bodas</span><span lang="en">Notary &amp; Weddings</span></strong><span class="d"><span lang="es">Documentos y ceremonias</span><span lang="en">Documents and ceremonies</span></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <img class="axen" src="axen-white.png" alt="Axen Realty">
+    <p><b>Carolina Monroy Muriel</b> · REALTOR® · Axen Realty · (678) 327-4255 · <span lang="es">Licencia de bienes raíces en Georgia y Florida</span><span lang="en">Real estate licensed in Georgia and Florida</span></p>
+    <p lang="es">Esta calculadora es educativa y da un estimado. No es una oferta de préstamo; la tasa, los costos y la aprobación dependen del prestamista y de tu situación.</p>
+    <p lang="en">This calculator is educational and gives an estimate. It is not a loan offer; rate, costs and approval depend on the lender and your situation.</p>
+    <p class="eho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 13h6M9 16h6"/></svg><span lang="es">Igualdad de oportunidades de vivienda</span><span lang="en">Equal Housing Opportunity</span></p>
+    <p><a href="index.html">www.carolinamonroymuriel.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, saved=null;
+  try{saved=localStorage.getItem('cmm-lang')}catch(e){}
+  function set(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.langbtn button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l?'true':'false')});
+    try{localStorage.setItem('cmm-lang',l)}catch(e){}}
+  set(saved||'es');
+  document.querySelectorAll('.langbtn button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+})();
+(function(){
+  var ids=['m-price','m-down','m-rate','m-term','m-tax','m-ins','m-hoa'];
+  var v=function(id){return parseFloat(document.getElementById(id).value)||0};
+  var $=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+  var set=function(id,t){document.getElementById(id).textContent=t};
+  function calc(){
+    var price=v('m-price'), downPct=Math.min(Math.max(v('m-down'),0),100), rate=v('m-rate')/100/12, n=v('m-term')*12;
+    var down=price*downPct/100, loan=Math.max(price-down,0);
+    var pi = n? (rate? loan*rate/(1-Math.pow(1+rate,-n)) : loan/n) : 0;
+    var tax=price*v('m-tax')/100/12, ins=v('m-ins')/12, hoa=v('m-hoa');
+    var pmi = downPct<20 ? loan*0.005/12 : 0;
+    var total=pi+tax+ins+pmi+hoa;
+    set('m-total',$(total)); set('m-pi',$(pi)); set('m-taxm',$(tax)); set('m-insm',$(ins));
+    set('m-pmi',$(pmi)); set('m-hoam',$(hoa)); set('m-downd',$(down)); set('m-loan',$(loan));
+    document.getElementById('row-pmi').style.opacity = pmi? 1 : .45;
+    var parts={'b-pi':pi,'b-tax':tax,'b-ins':ins,'b-pmi':pmi,'b-hoa':hoa};
+    for(var k in parts){document.getElementById(k).style.width=(total? parts[k]/total*100:0)+'%'}
+  }
+  ids.forEach(function(id){var el=document.getElementById(id);el.addEventListener('input',calc);el.addEventListener('change',calc)});
+  calc();
+})();
+</script>
+</body>
+</html>
