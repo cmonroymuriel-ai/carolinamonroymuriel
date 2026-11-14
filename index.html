@@ -202,6 +202,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .hero .in>*{animation:rise .7s ease both}
 .hero .in>*:nth-child(2){animation-delay:.12s}
 
+.sba-banner{display:flex;align-items:center;gap:18px;text-decoration:none;background:var(--gold-wash);border:1px solid rgba(198,169,79,.55);border-radius:var(--r-lg);padding:18px 22px;color:var(--ink);transition:box-shadow .2s ease,transform .2s ease}
+.sba-banner:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.sba-banner b{display:block;color:var(--green);font-size:1.05rem}
+.sba-sub{display:block;color:var(--muted);font-size:.92rem}
+.sba-tag{flex:none;background:var(--green);color:var(--on-dark);font-weight:700;font-size:.78rem;letter-spacing:.08em;border-radius:999px;padding:6px 12px}
+.sba-go{margin-left:auto;flex:none;font-weight:600;color:var(--green)}
+@media (max-width:600px){.sba-banner{flex-wrap:wrap}.sba-go{margin-left:0}}
 </style>
 
 </head>
@@ -296,6 +303,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <!-- PRESTAMOS -->
 <section class="block" id="prestamos">
   <div class="in" style="display:flex;flex-direction:column;gap:36px">
+    <a href="prestamos-sba.html" class="sba-banner"><span class="sba-tag">SBA 7(a)</span><span><b><span lang="es">¿Tiene un negocio? Préstamos SBA de hasta $5,000,000</span><span lang="en">Own a business? SBA loans up to $5,000,000</span></b><span class="sba-sub" lang="es">Para comprar un negocio, su local, capital de trabajo o expandirse.</span><span class="sba-sub" lang="en">To buy a business, your building, working capital or to expand.</span></span><span class="sba-go"><span lang="es">Ver más →</span><span lang="en">Learn more →</span></span></a>
     <div class="two">
       <div class="intro">
         <p class="eyebrow">Hard Money Loans · <span lang="es">Para inversionistas</span><span lang="en">For investors</span></p>
